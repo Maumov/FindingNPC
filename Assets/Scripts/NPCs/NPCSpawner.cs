@@ -5,22 +5,25 @@ using UnityEngine;
 public class NPCSpawner : MonoBehaviour
 {
     [SerializeField] private List<GameObject> npcPrefabs;
-    [SerializeField] private List<Transform> spawnLocations;
+    [SerializeField] private List<SolidRectangle> spawnLocations;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        CreateSomeNPCs();
+        StartCoroutine(CreateSomeNPCs());
     }
 
     //Testing creation of NPCs
-    void CreateSomeNPCs() {
-        for(int i = 0; i< spawnLocations.Count; i++) {
-            SpawnNPC(spawnLocations[i].position);
+    IEnumerator CreateSomeNPCs() {
+        for(int i = 0; i < 100f; i++) {
+            SpawnNPC(spawnLocations[0].GetRandomPositionInsideArea(),RandomNPC());
+            yield return null;
         }
-
+        yield return null;
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -30,7 +33,7 @@ public class NPCSpawner : MonoBehaviour
 
     Vector3 RandomNPCLocation() {
         int random = Random.Range(0, spawnLocations.Count);
-        return spawnLocations[random].position;
+        return spawnLocations[random].GetRandomPositionInsideArea();
     }
 
     GameObject RandomNPC() {

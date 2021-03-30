@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7696766138319645082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7696766138319645083}
+  - component: {fileID: 7696766138319645084}
+  m_Layer: 0
+  m_Name: NPCSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7696766138319645083
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7696766138319645082}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.933846, y: 0, z: 4.757425}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7696766138319645084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7696766138319645082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595e9689b9168a64093afd2048690af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcPrefabs:
+  - {fileID: 3453886307542119539, guid: 31779081cc5b7e24ea14278a17427008, type: 3}
+  - {fileID: 7138573410444404135, guid: 3f60af94316f35142a8dff885c5c8ab6, type: 3}
+  - {fileID: 759216493718728618, guid: 7d45b9c3efc6e734ab3df48952a3e3be, type: 3}
+  - {fileID: 7153193814967699690, guid: a5896d41ff9436247bea4f1ae6213379, type: 3}
+  - {fileID: 7507903212029813090, guid: 43ba284545d5fe440a2d2af54c7d1626, type: 3}
+  - {fileID: 3194480934824214530, guid: 144755bfd5d50cb4584e717d67f7923e, type: 3}
+  - {fileID: 5360731634019390086, guid: e6512dfca4b984c4eab314bd437848ac, type: 3}
+  - {fileID: 5415959942664100484, guid: 2c52a742012683e4fa673fdd2c95307c, type: 3}
+  - {fileID: 266955182173903537, guid: 2ada7dba6374d464ab9267c084dd68e3, type: 3}
+  spawnLocations: []
