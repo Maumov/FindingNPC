@@ -34,11 +34,12 @@ public class PlayerMovement : MonoBehaviour
 
 
     void Inputs() {
-        direction = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-        direction = transform.rotation * direction;
+        direction = new Vector3(Input.GetAxis("Horizontal"),0f , Input.GetAxis("Vertical"));
+        direction = transform.rotation * direction * currentMovementSpeed;
+        direction += Vector3.down * 20f;
     }
 
     void Move() {
-        characterController.Move(direction * currentMovementSpeed * Time.deltaTime);
+        characterController.Move(direction * Time.deltaTime);
     }
 }

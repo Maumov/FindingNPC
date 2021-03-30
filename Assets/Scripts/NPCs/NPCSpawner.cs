@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class NPCSpawner : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> npcPrefabs;
+    [SerializeField] private GameObject npcBasePrefab;
+    [SerializeField] private List<GameObject> npcVisualPrefabs;
     [SerializeField] private List<SolidRectangle> spawnLocations;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        //SpawnNPC(spawnLocations[0].GetRandomPositionInsideArea());
         StartCoroutine(CreateSomeNPCs());
     }
 
     //Testing creation of NPCs
     IEnumerator CreateSomeNPCs() {
-        for(int i = 0; i < 100f; i++) {
-            SpawnNPC(spawnLocations[0].GetRandomPositionInsideArea(),RandomNPC());
+        for(int i = 0; i < 100; i++) {
+            SpawnNPC(spawnLocations[0].GetRandomPositionInsideArea());
             yield return null;
         }
         yield return null;
@@ -36,23 +38,30 @@ public class NPCSpawner : MonoBehaviour
         return spawnLocations[random].GetRandomPositionInsideArea();
     }
 
-    GameObject RandomNPC() {
-        int random = Random.Range(0, npcPrefabs.Count);
-        return npcPrefabs[random];
+    GameObject RandomNPCVisual() {
+        int random = Random.Range(0, npcVisualPrefabs.Count);
+        return npcVisualPrefabs[random];
     }
 
     void SpawnNPC() {
-        Instantiate(RandomNPC(), RandomNPCLocation(), Quaternion.identity);
+        GameObject baseNPC = Instantiate(npcBasePrefab, RandomNPCLocation(), Quaternion.identity);
+        GameObject visual = Instantiate(RandomNPCVisual(), baseNPC.transform);
+        //visual.transform.parent = baseNPC.transform;
+        //visual.transform.localPosition = Vector3.zero;
+        //visual.transform.localRotation = Quaternion.identity;
     }
 
     void SpawnNPC(Vector3 position) {
-        Instantiate(RandomNPC(), position, Quaternion.identity);
+        GameObject baseNPC = Instantiate(npcBasePrefab, position, Quaternion.identity);
+        GameObject visual = Instantiate(RandomNPCVisual(), baseNPC.transform);
     }
 
     void SpawnNPC(Vector3 position, GameObject npc) {
-        Instantiate(npc, position, Quaternion.identity);
+        GameObject baseNPC = Instantiate(npcBasePrefab, position, Quaternion.identity);
+        GameObject visual = Instantiate(npc, baseNPC.transform);
     }
     void SpawnNPC(GameObject npc) {
-        Instantiate(npc, RandomNPCLocation(), Quaternion.identity);
+        GameObject baseNPC = Instantiate(npcBasePrefab, RandomNPCLocation(), Quaternion.identity);
+        GameObject visual = Instantiate(npc, baseNPC.transform);
     }
 }
