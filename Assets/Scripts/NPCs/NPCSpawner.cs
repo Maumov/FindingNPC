@@ -18,7 +18,7 @@ public class NPCSpawner : MonoBehaviour
 
     //Testing creation of NPCs
     IEnumerator CreateSomeNPCs() {
-        for(int i = 0; i < 100; i++) {
+        for(int i = 0; i < 350; i++) {
             SpawnNPC(spawnLocations[0].GetRandomPositionInsideArea());
             yield return null;
         }
